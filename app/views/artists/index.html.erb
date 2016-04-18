@@ -3,7 +3,11 @@
 <ul>
   <% @artists.each do |artist| %>
     <li>
-      <%= link_to artist.name, artist %>
+      <p>
+        <%= link_to artist.name, artist %> | <%= link_to 'Delete', artist_path(artist),
+                                                method: :delete,
+                                                data: { confirm: 'Are you sure?' } %>
+      </p>
     </li>
   <% end %>
 </ul>
