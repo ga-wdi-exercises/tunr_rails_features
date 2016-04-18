@@ -1,14 +1,17 @@
-<h2>New Artist</h2>
+<h2>New Song</h2>
 
-<%= form_for @artist do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<%= form_for @song do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
 
-  <%= f.label :photo_url %>
-  <%= f.text_field :photo_url %>
+  <%= f.label :album %>
+  <%= f.text_field :album %>
 
-  <%= f.label :nationality %>
-  <%= f.text_field :nationality %>
+  <%= f.label :preview_url %>
+  <%= f.text_field :preview_url %>
+
+  <%= f.label :artist_id %>
+  <%= f.text_field :artist_id %>
 
   <%= f.submit %>
 <% end %>
