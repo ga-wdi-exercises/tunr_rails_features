@@ -1,4 +1,7 @@
-<h2><%= @artist.name %></h2>
+<h2>
+  <%= @artist.name %>
+  <%= link_to "(edit)", edit_artist_path(@artist) %>
+</h2>
 <h4><%= @artist.nationality %></h4>
 
 <img class='artist-photo' src="<%= @artist.photo_url %>">
