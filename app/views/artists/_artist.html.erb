@@ -1,0 +1,5 @@
+<li>
+    <%= link_to artist.name, artist %> | <%= link_to 'Delete', artist_path(artist),
+                                            method: :delete,
+                                            data: { confirm: 'Are you sure?' } %>
+</li>

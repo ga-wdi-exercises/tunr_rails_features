@@ -1,13 +1,5 @@
 <h2>Artists</h2>
 <h3><%= link_to "New Artist", new_artist_path %></h3>
 <ul>
-  <% @artists.each do |artist| %>
-    <li>
-      <p>
-        <%= link_to artist.name, artist %> | <%= link_to 'Delete', artist_path(artist),
-                                                method: :delete,
-                                                data: { confirm: 'Are you sure?' } %>
-      </p>
-    </li>
-  <% end %>
+  <%= render @artists %>
 </ul>
