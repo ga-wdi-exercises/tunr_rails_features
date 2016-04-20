@@ -13,11 +13,12 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
-
+    @artist = @song.artist
+    
     if @song.save
       redirect_to @song, notice: "#{@song.title} sucessfully created."
     else
-      render :new
+      render "artists/show"
     end
   end
 
