@@ -8,20 +8,24 @@ class SongsController < ApplicationController
   end
 
   def new
+    @artist = Artist.find(params[:artist_id])
     @song = Song.new
   end
 
   def create
+    @artist = Artist.find(params[:artist_id])
     @song = Song.new(song_params)
+    @song.artist = @artist
 
     if @song.save
-      redirect_to @song, notice: "#{@song.title} sucessfully created."
+      redirect_to artist_song_path(@artist, @song), notice: "#{@song.title} sucessfully created."
     else
       render :new
     end
   end
 
   def edit
+    @artist = Artist.find(params[:artist_id])
     @song = Song.find(params[:id])
   end
 
@@ -29,7 +33,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
 
     if @song.update(song_params)
-      redirect_to @song, notice: "#{@song.title} sucessfully updated."
+      redirect_to artist_song_path(@song.artist, @song), notice: "#{@song.title} sucessfully updated."
     else
       render :edit
     end
@@ -39,7 +43,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     @song.destroy
 
-    redirect_to songs_path, notice: "#{@song.title} destroyed."
+    redirect_to artist_songs_path(@song.artist), notice: "#{@song.title} destroyed."
   end
 
   private

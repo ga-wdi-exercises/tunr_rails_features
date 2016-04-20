@@ -3,5 +3,8 @@
   <%= link_to "(edit)", edit_artist_path(@artist) %>
 </h2>
 <h4><%= @artist.nationality %></h4>
+<hr>
+<%= link_to "Add a song", new_artist_song_path(@artist) %>
+<hr>
 
 <img class='artist-photo' src="<%= @artist.photo_url %>">

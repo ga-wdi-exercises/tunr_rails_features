@@ -9,8 +9,8 @@
 <body>
   <h1>Tun.r</h1>
   <nav>
-    <a href="/artists">Artists</a>
-    <a href="/songs">Songs</a>
+    <%= link_to "Artists", artists_path %>
+    <%= link_to "Songs", songs_path %>
   </nav>
 
   <% flash.each do |type, message| %>
