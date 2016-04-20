@@ -110,9 +110,19 @@ a.no-fav {
 .fav:visited, .no-fav:visited {
   text-decoration: none;
 }
- .alert{
-   color:red;
+
+.flash {
+  border: 1px solid black;
+  color: white;
+  padding: .75em;
+  width: 75%;
+  margin: 2em auto;
+}
+
+.alert{
+  background-color: #F76A6A;
  }
- .notice{
-   color:blue;
- }
+
+.notice{
+  background-color: #6DDE6D;
+}
