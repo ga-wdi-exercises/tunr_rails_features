@@ -14,12 +14,13 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     @artist = Artist.find(params[:artist_id])
-    @song.artist_id = @artist.id
+    @song.artist = @artist
 
     if @song.save
       redirect_to @artist, notice: "#{@song.title} sucessfully created."
     else
-      render :new
+      # flash.now[:alert] = "FAILURE!"
+      render "artists/show"
     end
   end
 

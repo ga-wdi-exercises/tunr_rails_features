@@ -6,9 +6,29 @@
 
 <img class='artist-photo' src="<%= @artist.photo_url %>">
 
+<h2><%= @artist.name %>'s Songs</h2>
+
+<ul>
+<% @artist.songs.each do |song|  %>
+  <li><%= song.title %></li>
+<% end  %>
+</ul>
+
 <h2>Add a new Song for <%= @artist.name %></h2>
 
 <%= form_for [@artist, @song] do |f| %>
+
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <h2>errors:</h2>
+        <% @song.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end  %>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -17,6 +37,6 @@
 
   <%= f.label :preview_url %>
   <%= f.text_field :preview_url %>
-  
+
   <%= f.submit %>
 <% end %>
