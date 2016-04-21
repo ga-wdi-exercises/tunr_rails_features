@@ -10,33 +10,10 @@
 
 <ul>
 <% @artist.songs.each do |song|  %>
-  <li><%= link_to song.title, song_path(song) %></li>
+  <li><%= link_to song.title, artist_song_path(@artist, song) %></li>
 <% end  %>
 </ul>
 
 <h2>Add a new Song for <%= @artist.name %></h2>
 
-<%= form_for [@artist, @song] do |f| %>
-
-  <% if @song.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <h2>errors:</h2>
-        <% @song.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end  %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :album %>
-  <%= f.text_field :album %>
-
-  <%= f.label :preview_url %>
-  <%= f.text_field :preview_url %>
-
-  <%= f.submit %>
-<% end %>
+<%= render 'songs/form' %>

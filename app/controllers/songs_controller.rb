@@ -26,13 +26,14 @@ class SongsController < ApplicationController
 
   def edit
     @song = Song.find(params[:id])
+    @artist = @song.artist
   end
 
   def update
     @song = Song.find(params[:id])
 
     if @song.update(song_params)
-      redirect_to @song, notice: "#{@song.title} sucessfully updated."
+      redirect_to @song.artist, notice: "#{@song.title} sucessfully updated."
     else
       render :edit
     end
