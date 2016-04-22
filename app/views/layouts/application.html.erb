@@ -11,6 +11,15 @@
   <nav>
     <a href="/artists">Artists</a>
     <a href="/songs">Songs</a>
+    <span class="authentication">
+      <% if current_user %>
+        Logged in as: <%= current_user.email %>
+        <%= link_to "Sign Out", signout_path %>
+      <% else %>
+        <%= link_to "Sign In", signin_path %>
+        <%= link_to "Sign Up", signup_path %>
+      <% end  %>
+    </span>
   </nav>
 
   <% flash.each do |type, message| %>

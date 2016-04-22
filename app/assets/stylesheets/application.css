@@ -39,6 +39,10 @@ nav a:hover {
   color: blue;
 }
 
+nav .authentication {
+  float: right;
+}
+
 a, a:visited {
   text-decoration: none;
   color: blue;
