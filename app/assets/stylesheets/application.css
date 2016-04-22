@@ -13,6 +13,9 @@
 *= require_tree .
 *= require_self
 */
+* {
+  box-sizing: border-box;
+}
 
 body{
   font-family:'Helvetica Neue', sans-serif;
@@ -89,12 +92,15 @@ a.delete {
   background-color: red;
 }
 
-.artist-photo {
-  width: 400px;
+.artist-info {
+  float: left;
+  width: 50%;
 }
 
-span.nationality {
-  font-size: .5em;
+.artist-photo {
+  float: right;
+  margin-top: 2em;
+  width: 50%;
 }
 
 .user-info {
